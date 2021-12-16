@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/CSS/contact.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"
+          ><!-- hidden spacer to center brand on mobile --></span
+        >
+        <a class="navbar-brand" href="/"> Soccer </a>
+        <div class="w-100 text-right">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#myNavbar7"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="collapse navbar-collapse flex-grow-1 text-right"
+        id="myNavbar7"
+      >
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/fixture" class="nav-link">Fixture</a>
+          </li>
+          <li class="nav-item">
+            <a href="/Contact" class="nav-link">Contact us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Know your team
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/Teams/brazil">Brazil</a>
+              <a class="dropdown-item" href="/Teams/argentina"
+                >Argentina</a
+              >
+              <a class="dropdown-item" href="/Teams/germany">Germany</a>
+
+              <a class="dropdown-item" href="/Teams/italy">Italy</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+  
+    <div class="space"></div>
+    <div class="container">
+        <h3 class="text-center">Have a Question/Suggestion?</h3>
+        <h5 class="text-center grey">We would love to hear you</h5>
+        <div class="contact_image d-flex justify-content-center ">
+            <img 
+              src="data:image/jpeg;base64,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"
+              alt=""
+            />
+          </div>
+    
+    <div class="contact_section d-flex justify-content-center">
+      
+      <div class="contact_form">
+        <form class="form-row" action="../Success/success.html" method="" onsubmit="handlesubmit()">
+          <div class="form-group col-md-6">
+            <label for="exampleInputEmail1">Email address</label>
+            <input
+              type="email"
+              required
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleInputPassword1">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="name"
+            />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Topic</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputPassword1"
+              placeholder="topic"
+            />
+          </div>
+          <div class="form-group col-md-12">
+            <label for="exampleInputPassword1">Detail explanation</label>
+            <textarea
+            required
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="text-center">
+          <button  type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    <div class="space"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/JS/contact.js"></script>
+  </body>
+</html>

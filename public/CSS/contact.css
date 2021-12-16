@@ -1,0 +1,16 @@
+
+.space{
+    height: 100px;
+}
+.grey{
+    color: grey;
+}
+
+.text-center {
+    text-align: center!important;
+    width: 100%;
+}
+.container {
+    border: 1px dotted;
+    padding: 27px;
+}
