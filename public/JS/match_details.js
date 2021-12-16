@@ -1,25 +1,17 @@
-
-console.log("Hello world")
-const queryString = window.location.search; 
-
-const urlParams = new URLSearchParams(queryString);
-const match = urlParams.get('abc')
-
+const item=root
 
 const winOrLoss=(n)=>{
-    if(n===1)
-        return '../'+'other_images/correct.png'
-    else if(n===0)
-        return '../'+'other_images/wrong.jpg'
+    if(n==='1')
+        return '/'+'other_images/correct.png'
+    else if(n==='0')
+        return '/'+'other_images/wrong.jpg'
     else
-        return '../'+'other_images/draw.png'
+        return '/'+'other_images/draw.png'
 
 }
 
-const render=()=>{
-   result.map((item)=>{ 
-    if(item.No!=match)
-        return console.log("Sorry did not match")
+
+   
      
     document.getElementById('Number').innerText='Match No '+item.No;
     document.getElementById('dateTime').innerText=item.date
@@ -58,8 +50,8 @@ const render=()=>{
         document.getElementsByClassName('team2_recent')[i].src=winOrLoss(item.team2_recent[i])
 
     }
-})
 
-}
 
-render()
+
+
+
