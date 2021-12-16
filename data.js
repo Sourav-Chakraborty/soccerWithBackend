@@ -1184,4 +1184,4 @@ const player=[
     
 
 
-module.exports=result 
+module.exports=summary 

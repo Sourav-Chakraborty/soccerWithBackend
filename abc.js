@@ -1,34 +1,42 @@
-const MatchDetails=require('./model/match_details')
-const result=require('./data.js')
+const Result=require('./model/result')
+const summary=require('./data.js')
 const abc=async ()=>{
-    result.map(async (res)=>{
+    summary.map(async (res)=>{
      try{
-        const matchDetails=await new MatchDetails({
+        const result=await new Result({
    
-            No:res.No,
+            No:res.no,
             date:res.date,
             team1:res.team1,
             team2:res.team2,
-            img1:res.img1,
-            img2:res.img2,
-            team1_prob:res.team1_prob,
-            team2_prob:res.team2_prob,
-            matches:res.matches,
-            team1_win:res.team1_win,
-            team2_win:res.team2_win,
-            win:res.win,
-            draw:res.draw,
-            team1_top:res.team1_top,
-            team2_top:res.team2_top,
-            team1_history:res.team1_history,
-            team2_history:res.team2_history,
-            team1_recent:res.team1_recent,
-            team2_recent:res.team2_recent,
-        
-            team1_player:res.team1_player,
-            team2_player:res.team2_player
+            team1_flag:res.team1_flag,
+            team2_flag:res.team2_flag,
+            team1_score:res.team1_score,
+            team2_score:res.team2_score,
+            team1_goal:res.team1_goal,
+            team2_goal:res.team2_goal,
+            team1_short:res.team1_short,
+            team2_short:res.team2_short,
+            team1_target:res.team1_target,
+            team2_target:res.team2_target,
+            team1_poss:res.team1_poss,
+            team2_poss:res.team2_poss,
+            team1_pass:res.team1_pass,
+            team2_pass:res.team2_pass,
+            team1_acc:res.team1_acc,
+            team2_acc:res.team2_acc,
+            team1_foul:res.team1_foul,
+            team2_foul:res.team2_foul,
+            team1_yellow:res.team1_yellow,
+            team2_yellow:res.team2_yellow,
+            team1_red:res.team1_red,
+            team2_red:res.team2_red,
+            team1_offside:res.team1_offside,
+            team2_offside:res.team2_offside,
+            team1_corner:res.team1_corner,
+            team2_corner:res.team2_corner
             })
-            await matchDetails.save()
+            await result.save()
         }catch(err){
             console.log(err)
         }
