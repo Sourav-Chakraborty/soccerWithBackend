@@ -26,17 +26,19 @@ router.get('/',(req,res)=>{
 
 })
 
-router.get('/fixture',(req,res)=>{
+router.get('/fixture',async (req,res)=>{
+    const matches=await MatchDetails.find({})
+    
     const token=ls.get('token')
     console.log('token ',token)
     if(token===null){  
         console.log("you are not log in")
-       return res.render('fixture',{login:false,isAdmin:false})
+       return res.render('fixture',{login:false,isAdmin:false,matches})
     }
     const email=fetchUser(token)
-
     
-    res.render('fixture',{login:true,isAdmin:false})
+    
+    res.render('fixture',{login:true,isAdmin:false,matches})
 })
 router.get('/Contact',(req,res)=>{
     const token=ls.get('token')

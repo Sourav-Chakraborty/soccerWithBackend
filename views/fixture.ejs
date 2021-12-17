@@ -175,284 +175,36 @@
             <h2 style="margin-left: 10px;">Upcoming matches</h2>
         </div>
         <div class="upcoming_right">
+          <% matches.forEach(function(match,index){ %>
             <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-11</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">4th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Spain.png" alt="">
-                  <h4 style="display: inline;">Spain</h4>
-                  <br>
-                  <img class="photo" src="../flag/download.png" alt="">
-                  <h4 style="display: inline;text-align: right;">England</h4>
-                  
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/11" target="_blank" role="button">Know More</a>
-                </div>
-                  
+              <div class="card-body">
+                <h5 class="card-title">Match- <%=match.No%> </h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%=match.date%></h6>
+               <img class="photo" src='<%=match.img1%>' alt="">
+                <h4 style="display: inline;"><%=match.team1%></h4>
+                <br>
+                <img class="photo" src="<%=match.img2%>" alt="">
+                <h4 style="display: inline;text-align: right;"><%=match.team2%></h4>
                 
               </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-12</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">6th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Germany.png" alt="">
-                  <h4 style="display: inline;">Germany</h4>
-                  <br>
-                  <img class="photo" src="../flag/Brazil.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Brazil</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/12" target="_blank" role="button">Know More</a>
-                </div>
-                  
+              <div class="btn center">
+                <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
               </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-13</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">7th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Chile.png" alt="">
-                  <h4 style="display: inline;">Chile</h4>
-                  <br>
-                  <img class="photo" src="../flag/France.png" alt="">
-                  <h4 style="display: inline;text-align: right;">France</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/13" target="_blank" role="button">Know More</a>
-                </div>
-                  
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-14</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">8th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Argentina.jpg" alt="">
-                  <h4 style="display: inline;">Argentina</h4>
-                  <br>
-                  <img class="photo" src="../flag/download.png" alt="">
-                  <h4 style="display: inline;text-align: right;">England</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/14" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-15</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">9th December 2021 at 19:00 PM</h6>
-                  <img class="photo" src="data:image/png;base64,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" alt="">
-                  <h4 style="display: inline;">Spain</h4>
-                  <br>
-                  <img class="photo" src="../flag/Netharland.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Netherland</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/15" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-16</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">10th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Uruguay.png" alt="">
-                  <h4 style="display: inline;">Uruguay</h4>
-                  <br>
-                  <img class="photo" src="../flag/Norway.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Norway</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/16" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-17</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">11th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Italy.png" alt="">
-                  <h4 style="display: inline;">Italy</h4>
-                  <br>
-                  <img class="photo" src="../flag/France.png" alt="">
-                  <h4 style="display: inline;text-align: right;">France</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/17" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-18</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">12th December 2021 at 19:00 PM</h6>
-                  <img class="photo" src="data:image/png;base64,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" alt="">
-                  <h4 style="display: inline;">Spain</h4>
-                  <br>
-                  <img class="photo" src="../flag/Brazil.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Brazil</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/18" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-19</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">13th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Chile.png" alt="">
-                  <h4 style="display: inline;">Chile</h4>
-                  <br>
-                  <img class="photo" src="../flag/Argentina.jpg" alt="">
-                  <h4 style="display: inline;text-align: right;">Argentina</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/19" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-20</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">14th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Italy.png" alt="">
-                  <h4 style="display: inline;">Italy</h4>
-                  <br>
-                  <img class="photo" src="../flag/Norway.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Norway</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/20" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-21</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">15th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Brazil.png" alt="">
-                  <h4 style="display: inline;">Brazil</h4>
-                  <br>
-                  <img class="photo" src="../flag/Netharland.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Netherland</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/21" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-22</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">16th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Uruguay.png" alt="">
-                  <h4 style="display: inline;">Uruguay</h4>
-                  <br>
-                  <img class="photo" src="../flag/download.png" alt="">
-                  <h4 style="display: inline;text-align: right;">England</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/22" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-23</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">17th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Germany.png" alt="">
-                  <h4 style="display: inline;">Germany</h4>
-                  <br>
-                  <img class="photo" src="../flag/Italy.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Italy</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/23" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-24</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">18th December 2021 at 19:00 PM</h6>
-                  <img class="photo" src="data:image/png;base64,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" alt="">
-                  <h4 style="display: inline;">Spain</h4>
-                  <br>
-                  <img class="photo" src="../flag/Argentina.jpg" alt="">
-                  <h4 style="display: inline;text-align: right;">Argentina</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/24" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-25</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">19th December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/Chile.png" alt="">
-                  <h4 style="display: inline;">Chile</h4>
-                  <br>
-                  <img class="photo" src="../flag/France.png" alt="">
-                  <h4 style="display: inline;text-align: right;">France</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/25" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-26</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">20th December 2021 at 19:00 PM</h6>
-                <img class="photo" src="../flag/Norway.png" alt="">
-                  <h4 style="display: inline;">Norway</h4>
-                  <br>
-                  <img class="photo" src="../flag/Uruguay.png" alt="">
-                  <h4 style="display: inline;text-align: right;">Uruguay</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/26" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-27</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">21st December 2021 at 19:00 PM</h6>
-                 <img class="photo" src="../flag/download.png" alt="">
-                  <h4 style="display: inline;">England</h4>
-                  <br>
-                  <img class="photo" src="../flag/Argentina.jpg" alt="">
-                  <h4 style="display: inline;text-align: right;">Argentina</h4>
-
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/27" target="_blank"  role="button">Know More</a>
-                </div>
-              </div>
-              <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title">Match-28</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">22nd December 2021 at 19:00 PM</h6>
-                  <img class="photo" src="../flag/Italy.png" alt="">
-                  <h4 style="display: inline;">Italy</h4>
-                  <br>
-                  <img class="photo" src="../flag/France.png" alt="">
-                  <h4 style="display: inline;text-align: right;">France</h4>
-
-                  
-                </div>
-                <div class="btn center">
-                  <a class="btn btn-primary" href="/details/28" target="_blank" role="button">Know More</a>
-                </div>
-              </div>
+                
               
-        </div>
-    </div>
+            </div>
+         <% })%>
+           
+                
+            
+              
+               
+                  
+        </div>      
+
+               
+                 
+    
     <div class="space"></div>
     
     <div class="mobile"></div>
