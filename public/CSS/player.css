@@ -1,0 +1,156 @@
+.space{
+    height: 100px;
+    width: 100%;
+}
+.profile {
+    display: flex;
+    flex-wrap: wrap;
+}
+.card.card1 {
+    width: 350px;
+    height: 373px;
+}
+.heading{
+    width: 500px; 
+    padding: 8px;
+}
+
+.card {
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+img.card.photo {
+    width: 165px;
+    height: 175px;
+}
+
+img.playerImg {
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+}
+.trophy{
+  
+    width: 166px;
+    height: 176px;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-left: 10px;
+
+}
+img.photo {
+    width: 100%;
+    height: 100%;
+    
+}
+h3.trophyText {
+    position: absolute;
+    text-align: center;
+    color: whitesmoke;
+    bottom: 25%;
+    font-weight: 800;
+    
+}
+.award{
+    display: flex;
+}
+
+.info {
+    margin-left: 20px;
+    width: 50%;
+    padding: 3%;
+    padding-left: 10px;
+}
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.matches{
+    height: 18rem; 
+    width: 37%;
+    padding-top: 9%;
+}
+
+.goals{
+    height: 18rem; 
+    width: 37%; 
+    margin-left: 85px;
+    padding-top: 9%;
+}
+
+
+
+footer {
+ 
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #222020;
+    color: white;
+  }
+  .left_footer {
+    padding-top: 25px;
+    
+    padding-left: 9%;
+  }
+  .right_footer {
+    width: 50%;
+    float: right;
+    
+    margin-left: 97px;
+    margin-top: 60px;
+   
+  }
+  .logo{
+    width: 35px;
+      height: 35px;
+      border-radius: 50%;
+  
+  }
+  .location {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .location_icon {
+    padding: 25px;
+  }
+  .location_text {
+    color: whitesmoke;
+    padding-top: 16px;
+  }
+  .location_text span{
+    font-size: 1.5rem;
+  }
+  #copy_right{
+    border-top: 1px solid white;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+  }
+
+
+@media screen and (max-width: 765px) {
+
+    .card{
+        width: 100%;
+    }
+    .info {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        padding: 1%;
+    }
+    .matches{
+        padding-top: 15%;
+    }
+    .goals{
+        margin-left: 0;
+        margin-top: 25px;
+        padding-top: 15%;
+    }
+    .trophy{
+        margin-left: 25%;
+    }
+}
