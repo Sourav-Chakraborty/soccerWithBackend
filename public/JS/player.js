@@ -62,11 +62,11 @@ $(document).ready(function(){
         }
       item.photo=item.photo.split(',')
       console.log(item.photo)
-      //  console.log(item.trophyText)
+      
        
-        //  item.trophyText=item.trophyText.split(',')
+         item.trophyText=item.trophyText.split(',')
         for(var i=0;i<5;i++){
           document.getElementsByClassName("photo")[i].src=item.photo[i]
-          // document.getElementsByClassName("trophyText")[i].innerText=item.trophyText[i]
+          document.getElementsByClassName("trophyText")[i].innerText=item.trophyText[i]
 
         }
