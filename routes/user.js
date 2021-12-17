@@ -24,7 +24,7 @@ router.post('/createUser',async (req,res)=>{
       const hash = await bcrypt.hashSync(req.body.password, salt); //hashing the password
       user = await User.create({
         //boiler plate code from express-validator website
-        name: req.body.name,
+        team:req.body.team.split(','),
         email: req.body.email,
         password: hash, //storing the hashed password
       });
@@ -79,9 +79,36 @@ router.post('/signin',async (req,res)=>{
   res.redirect('/')
   
 })
+router.post('/updateUser',async (req,res)=>{
+  let {email,team}=req.body
+  if(email===undefined)
+    return res.json({msg:"Sorry can't perform update"})
+  team=team.split(',')
+  await User.findOneAndUpdate({email},{team})
+  console.log("updated")
+  res.redirect('/')
+})
 
-
-
+router.post('/changePassword',async (req,res)=>{
+  const {old,password,confirm,email}=req.body
+  console.log(old,password,confirm)
+  if(password!==confirm)
+    return res.json({msg:"password & confirm password are not same"})
+  const user=await User.findOne({email})
+  if (user===undefined) {
+    return res
+      .status(403)
+      .json({ msg: "please put valid credentials" });
+  }
+  const passwordCompare=await bcrypt.compare(req.body.old,user.password)
+  if(passwordCompare===false)
+    return res.json({msg:"password didn't match"})
+  const salt = await bcrypt.genSaltSync(10); //generating salt
+  const hash = await bcrypt.hashSync(req.body.password, salt);  
+  await User.findOneAndUpdate({email},{password:hash})
+  console.log("password changed")
+  res.redirect('/')
+})
 
 
 

@@ -4,323 +4,218 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    
-    <link rel="stylesheet" href="/CSS/result.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/profile.css">
 </head>
 <body>
-  <script>
-    const item={
-      no:'<%-No%>',
-      date:'<%-date%>',
-      team1:'<%-team1%>',
-      team2:'<%-team2%>',
-      team1_flag:'<%-team1_flag%>',
-      team2_flag:'<%-team2_flag%>',
-      team1_score:'<%-team1_score%>',
-      team2_score:'<%-team2_score%>',
-      team1_goal:"<%-team1_goal%>",
-      team2_goal:"<%-team2_goal%>",
-      team1_short:'<%-team1_short%>',
-      team2_short:'<%-team2_short%>',
-      team1_target:'<%-team1_target%>',
-      team2_target:'<%-team2_target%>',
-      team1_poss:'<%-team1_poss%>',
-      team2_poss:'<%-team2_poss%>',
-      team1_pass:'<%-team1_pass%>',
-      team2_pass:'<%-team2_pass%>',
-      team1_acc:'<%-team1_acc%>',
-      team2_acc:'<%-team2_acc%>',
-      team1_foul:'<%-team1_foul%>',
-      team2_foul:'<%-team2_foul%>',
-      team1_yellow:'<%-team1_yellow%>',
-      team2_yellow:'<%-team2_yellow%>',
-      team1_red:'<%-team1_red%>',
-      team2_red:'<%-team2_red%>',
-      team1_offside:'<%-team1_offside%>',
-      team2_offside:'<%-team2_offside%>',
-      team1_corner:'<%-team1_corner%>',
-      team2_corner:'<%-team2_corner%>',
-
-
-
-
-     
-    }
-  </script>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="d-flex flex-grow-1">
-        <span class="w-100 d-lg-none d-block"
-          ><!-- hidden spacer to center brand on mobile --></span
-        >
-        <a class="navbar-brand" href="/"> Soccer </a>
-        <div class="w-100 text-right">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#myNavbar7"
+        <div class="d-flex flex-grow-1">
+          <span class="w-100 d-lg-none d-block"
+            ><!-- hidden spacer to center brand on mobile --></span
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        </div>
-      </div>
-      <div
-        class="collapse navbar-collapse flex-grow-1 text-right"
-        id="myNavbar7"
-      >
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/Fixture" class="nav-link">Fixture</a>
-          </li>
-          <li class="nav-item">
-            <a href="/Contact" class="nav-link">Contact us</a>
-          </li>
-          
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
+          <a class="navbar-brand" href="/"> Soccer </a>
+          <div class="w-100 text-right">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#myNavbar7"
             >
-              Know your team
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/Teams/brazil">Brazil</a>
-              <a class="dropdown-item" href="/Teams/argentina">Argentina</a>
-              <a class="dropdown-item" href="/Teams/germany">Germany</a>
-
-              <a class="dropdown-item" href="/Teams/italy">Italy</a>
-            </div>
-          </li>
-         <% if(!login){ %>
-          <li class="nav-item">
-            <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal">
-              Sign up
+              <span class="navbar-toggler-icon"></span>
             </button>
-          </li>
-         
-          <li class="nav-item">
-            <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#exampleModal1">
-              Sign in
-            </button>
-
-          </li>
-          <% }else{ %>
+          </div>
+        </div>
+        <div
+          class="collapse navbar-collapse flex-grow-1 text-right"
+          id="myNavbar7"
+        >
+          <ul class="navbar-nav ml-auto flex-nowrap">
             <li class="nav-item">
-              <a class="btn btn-primary m-2" href="/profile" role="button">Edit profile</a>
+              <a href="/" class="nav-link">Home</a>
+            </li>
+    
+            <li class="nav-item">
+              <a href="/Fixture" class="nav-link">Fixture</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-primary m-2" href="/signout" role="button">SignOut</a>
+              <a href="/Contact" class="nav-link">Contact us</a>
             </li>
-          <% } %>
-        </ul>
-      </div>
-    </nav>
-    <div style="height: 70px;"></div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Please put your email to verify</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="/createUser">
-              <div class="form-row">
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Email</label>
-                  <input  name="email" type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Password</label>
-                  <input type="password" name="password" class="form-control" id="inputPassword4" >
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="inputAddress">Favourite teams</label>
-                <input type="text" name="team" class="form-control" id="inputAddress" placeholder="input by comma separed" >
-              </div>
-              
-             
-              <button type="submit" class="btn btn-primary">Sign up</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="/signin">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Know your team
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/Teams/brazil">Brazil</a>
+                <a class="dropdown-item" href="/Teams/argentina">Argentina</a>
+                <a class="dropdown-item" href="/Teams/germany">Germany</a>
+    
+                <a class="dropdown-item" href="/Teams/italy">Italy</a>
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-              </div>
-              
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            
-          </div>
+            </li>
+           <% if(!login){ %>
+            <li class="nav-item">
+              <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal">
+                Sign up
+              </button>
+            </li>
+           
+            <li class="nav-item">
+              <button type="button" class="btn btn-primary m-2" data-toggle="modal" data-target="#exampleModal1">
+                Sign in
+              </button>
+    
+            </li>
+            <% }else{ %>
+              <li class="nav-item">
+                <a class="btn btn-primary m-2" href="/profile" role="button">Edit profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-primary m-2" href="/signout" role="button">SignOut</a>
+              </li>
+            <% } %>
+          </ul>
         </div>
-      </div>
-    </div>
-
-    <div style="margin-top: 60px;"></div>
-    <div class="container">
-        <h5 class="center" id="number"></h5>
-        <h6 class="center" style="color: grey;" id="dateTime"> </h6>
-        <div class="probability">
-            <div class="team1">    
-
-                <img id="team1_Img"  alt="" class="photo">
-                <h6 id="team1"></h6>
-                
-                
+      </nav>
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Please put your email to verify</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-            <h1 id="team1_score"  class="score" style="margin-left: 5px;"></h1>
-            <h1 id="team2_score" style="margin-right: 5px;"></h1>
-            <div class="team2">
-
-                <img id="team2_Img"  alt="" class="photo">
-                <h6 id="team2"></h6>
+            <div class="modal-body">
+              <form method="post" action="/createUser">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEmail4">Email</label>
+                    <input  name="email" type="email" class="form-control" id="inputEmail4">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="inputPassword4">Password</label>
+                    <input type="password" name="password" class="form-control" id="inputPassword4" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress">Favourite teams</label>
+                  <input type="text" name="team" class="form-control" id="inputAddress" placeholder="input by comma separed" >
+                </div>
+                
+               
+                <button type="submit" class="btn btn-primary">Sign up</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/signin">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/changePassword">
+                  <input style="display: none;" type="text" value="<%-email -%>" name="email">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Old password</label>
+                  <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="old">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">New Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="confirm">
+                  </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container">
+        <h2>Change your data</h2>
+        <img class="round" src="/other_images/profile.png" alt="">
+        <form method="post" action="/updateUser">
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Team</label>
+              <div class="col-sm-10">
+                 <input style="display: none;" type="text" name="email" value="<%-email -%>">
+                <input type="text" class="form-control" id="inputEmail3" name="team" value="<%-team -%>">
+              </div>
             </div>
            
-        </div>
-
-        <p class="center">Full Time</p>
-
-
-
-    </div>
-    <div class="container d-flex">
-        <div class="leftTeam me-auto p-2 bd-highlight">
-            <p id="team1_goal"></p>
-        </div>
-        <div class="middle center">
-            <img  src="../other_images/football.png" alt="" style="width: 15px; height: 15px;">
-        </div>
-        <div class="rightTeam p-2 bd-highlight">
-            <p id="team2_goal"></p>
-        </div>
-    </div>
-
-    <div class="container">
-        <table class="table table-borderless ">
-            <thead>
-              <tr>
+            <div class="submit">
                
-                <th scope="col" class="center">
+                <button type="submit" class=" btn  btn-primary my-2">Update</button>
 
-                    <img id="team1_flag"
-                     alt="" class="photo">
-                   
+            </div>
+            
+               
+                
            
-                </th>
-                <th scope="col" class="center" style="width: 300px;">Match Summary</th>
-                <th scope="col" class="center"> 
-
-                    <img id="team2_flag"  alt="" class="photo">
-                    
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-               
-                <td class="center" id="team1_short"></td>
-                <td class="center">Shorts</td>
-                <td class="center" id="team2_short"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_target"></td>
-                <td class="center">Shorts on target</td>
-                <td class="center" id="team2_target"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_poss"></td>
-                <td class="center">Possession</td>
-                <td class="center" id="team2_poss"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_pass"></td>
-                <td class="center">Passes</td>
-                <td class="center" id="team2_pass"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_acc"></td>
-                <td class="center">Pass accuracy</td>
-                <td class="center" id="team2_acc"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_foul"></td>
-                <td class="center">Fouls</td>
-                <td class="center" id="team2_foul"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_yellow"></td>
-                <td class="center">Yellow Cards</td>
-                <td class="center" id="team2_yellow"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_red"></td>
-                <td class="center">Red Cards</td>
-                <td class="center" id="team2_red"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_off"></td>
-                <td class="center">Offside</td>
-                <td class="center" id="team2_off"></td>
-              </tr>
-              <tr>
-               
-                <td class="center" id="team1_corner"></td>
-                <td class="center">Corner</td>
-                <td class="center" id="team2_corner"></td>
-              </tr>
-            </tbody>
-        </table>
+          </form>
+          <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal2">
+            change password
+          </button>
     </div>
-  
 
-    <footer>
+        <div class="space"></div>
+     <footer> 
         <div class="left_footer">
             <div class="location">
               <div class="location_icon">
@@ -368,16 +263,11 @@
             </div>
         </div>
         <div id="copy_right">
-            <p>Copy right reserve 2021</p>
+            <p>Copy right reserve</p>
         </div>
-    </footer>
-
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    </footer> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-   
-    <script src="/JS/result.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 const express=require('express')
 const MatchDetails=require('../model/match_details')
 const Result=require('../model/result')
+const User=require('../model/user')
 const Player=require('../model/player')
 const fetchUser=require('../fetchUser')
 const ls=require('local-storage')
@@ -124,6 +125,18 @@ router.get('/player/:id',async (req,res)=>{
     res.render('player',{login:true,isAdmin:false,id:match.id,name:match.name,img:match.img,fullName:match.fullName,born:match.born,died:match.died,age:match.age,country:match.country,height:match.height,foot:match.foot,pos:match.pos,number:match.number,match:match.match,goal:match.goal,club:match.goal,club:match.club,league:match.league,leg_match:match.leg_match,leg_goal:match.leg_goal,photo:match.photo,trophyText:match.trophyText})
 
 })
+
+router.get('/profile',async (req,res)=>{
+    const token=ls.get('token')
+    if(token===null)
+      return res.json({msg:"please log in to edit"})
+    const email=fetchUser(token)
+    const user = await User.findOne({email})
+    console.log(user)
+      const team=user.team.toString()
+      console.log(team)
+      res.render('profile',{login:true,isAdmin:user.isAdmin,email:user.email,team:team})
+  })
 
 
 module.exports=router
