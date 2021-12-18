@@ -1,4 +1,5 @@
 const express=require('express')
+const NewsAPI = require('newsapi');
 const MatchDetails=require('../model/match_details')
 const Result=require('../model/result')
 const User=require('../model/user')
@@ -12,17 +13,22 @@ const router=express.Router()
 
 
 
-router.get('/',(req,res)=>{
+router.get('/',async (req,res)=>{
+    const newsapi = new NewsAPI('a2f5c227edef4ba1867c63b12930dc08');
+    const news=await newsapi.v2.topHeadlines({
+        q: 'football'  
+      })
+     
     const token=ls.get('token')
-    console.log('token ',token)
+   
     if(token===null){  
-        console.log("you are not log in")
-       return res.render('index',{login:false,isAdmin:false})
+        
+       return res.render('index',{login:false,isAdmin:false,news:news.articles})
     }
     const email=fetchUser(token)
 
     
-    res.render('index',{login:true,isAdmin:false})
+    res.render('index',{login:true,isAdmin:false,news:news.articles})
 
 })
 

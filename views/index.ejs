@@ -543,8 +543,30 @@
         </div>
       </div>
     </section>
-
-    
+    <h2 class="text-center" style="margin-top: 200px;"> Latest News</h2>
+    <div class="slider12 owl-carousel row">
+      <% news.forEach(function(ne,index){ %>
+        <div class="card " style="margin-left: 45px;">
+          <img
+            class="card-img-top "
+            src="<%=ne.urlToImage %>"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="text-center" style="width: 100%;"><%=ne.title.slice(0,100) %>...</h5>
+            <p class="text-center" style="width: 100%;"><%=ne.description.slice(0,100) %>...</p>
+            <a
+              target="_blank"
+              class="btn btn-primary"
+              style="margin-left: 25%"
+              href="<%=ne.url %>"
+              role="button"
+              >Know More</a
+            >
+          </div>
+        </div>
+      <% }) %>
+    </div>
     <div class="space"></div>
 
     <!-- Slider---------------------------------------------------------------------------------------------------- -->
@@ -634,7 +656,7 @@
       </div>
     </div>
     </div>
-
+   
     <!-- Footer------------------------------------------------------------------------------------------------------------- -->
 
     <footer>
