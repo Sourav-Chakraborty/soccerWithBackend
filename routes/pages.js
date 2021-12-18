@@ -29,23 +29,23 @@ router.get('/',(req,res)=>{
 router.get('/fixture',async (req,res)=>{
     const matches=await MatchDetails.find({})
     const result=await Result.find({})
-    
+    let userMatches=await MatchDetails.find({'team1':'Brazil'})
     const token=ls.get('token')
-    console.log('token ',token)
+    console.log('brazil ',userMatches)
     if(token===null){  
         console.log("you are not log in")
-       return res.render('fixture',{login:false,isAdmin:false,matches,result})
+       return res.render('fixture',{login:false,isAdmin:false,matches,result,userM:false,userMatches})
     }
     const email=fetchUser(token)
     const user=await User.findOne({email})
     
     const userTeam=user.team
-    const userMatches=await MatchDetails.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
-    const userResult=await Result.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
+    userMatches=await MatchDetails.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
+    // const userResult=await Result.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
 
-    console.log(userResult)
+    console.log("userMatches ",userMatches)
     
-    res.render('fixture',{login:true,isAdmin:false,matches,result})
+    res.render('fixture',{login:true,isAdmin:false,matches,result,userM:true,userMatches})
 })
 router.get('/Contact',(req,res)=>{
     const token=ls.get('token')
