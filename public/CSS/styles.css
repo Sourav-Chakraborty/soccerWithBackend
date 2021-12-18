@@ -260,9 +260,7 @@
   }
   
   /* Legend section */
-  body {
-    font-family: 'Cute Font',cursive;
-  }
+  
   
   header {
     height: 100vh;
@@ -382,5 +380,5 @@
     height: 40px;
   }
   .space{
-    height: 100vh;
+    height: 40vh;
   }

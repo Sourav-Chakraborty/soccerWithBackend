@@ -163,8 +163,16 @@
     
 
      <!-- Upcoming matches -->
+    <div class="d-flex justify-content-center">
+      <h5 class="allTeam">All teams</h5>
+      <label class="switch mx-2" >
+        <input type="checkbox" onchange="toggleButton()">
+        <span class="slider"></span>
+      </label>
+      <h5 class="myTeam">My teams only</h5>
 
-
+    </div>
+    
 
     <h1 class="center">Matches Ahead</h1>
    
@@ -214,134 +222,34 @@
     <!-- previous matches result -->
 
 
-    <h2 class="text-center">Previous Matches</h2>
+    <h2 class="text-center previous">Previous Matches</h2>
 
 
 
 
   <div class="prev">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-3</h5>
-        <h6 class="card-subtitle mb-2 text-muted">20th August 2021 at 19:00 PM</h6>
-      <img class="photo" src="../flag/France.png" alt="">
-        <h4 style="display: inline;">France ->1</h4>
-        <br>
-        <img class="photo" src="../flag/Netharland.png" alt="">
-        <h4 style="display: inline;text-align: right;">Netharland ->2</h4>
+    <% result.forEach(function(match,index){ %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Match- <%=match.No%> </h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%=match.date%></h6>
+          <img class="photo" src="<%=match.team1_flag%>" alt="">
+          <h4 style="display: inline;"> <%=match.team1%> -><%=match.team1_score%></h4>
+          <br>
+          <img class="photo" src="<%=match.team2_flag%>" alt="">
+          <h4 style="display: inline;text-align: right;"><%=match.team2%> -><%=match.team2_score%></h4>
+          
+        </div>
+        <div class="btn center">
+          <a class="btn btn-primary" href="/result/<%=match.No%>" target="_blank" role="button">Know More</a>
+        </div>
+          
+        
+      </div>
+   <% })%>
+  
 
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/3" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-4</h5>
-        <h6 class="card-subtitle mb-2 text-muted">21st August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/Belgium.png" alt="">
-        <h4 style="display: inline;">Belgium ->0</h4>
-        <br>
-        <img class="photo" src="../flag/Argentina.jpg" alt="">
-        <h4 style="display: inline;text-align: right;">Argentina ->0</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/4" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-5</h5>
-        <h6 class="card-subtitle mb-2 text-muted">22nd August 2021 at 19:00 PM</h6>
-      <img class="photo" src="../flag/Norway.png" alt="">
-        <h4 style="display: inline;">Norway ->1</h4>
-        <br>
-        <img class="photo" src="../flag/Chile.png" alt="">
-        <h4 style="display: inline;text-align: right;">Chile ->0</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/5" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-6</h5>
-        <h6 class="card-subtitle mb-2 text-muted">23rd August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/Germany.png" alt="">
-        <h4 style="display: inline;">Germany ->2</h4>
-        <br>
-        <img class="photo" src="../flag/Uruguay.png" alt="">
-        <h4 style="display: inline;text-align: right;">Uruguay ->1</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/6" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-7</h5>
-        <h6 class="card-subtitle mb-2 text-muted">24th August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/download.png" alt="">
-        <h4 style="display: inline;">England ->3</h4>
-        <br>
-        <img class="photo" src="../flag/Netharland.png" alt="">
-        <h4 style="display: inline;text-align: right;">Netherland ->3</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/7" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-8</h5>
-        <h6 class="card-subtitle mb-2 text-muted">25th August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/Chile.png" alt="">
-        <h4 style="display: inline;">Chile ->2</h4>
-        <br>
-        <img class="photo" src="../flag/Italy.png" alt="">
-        <h4 style="display: inline;text-align: right;">Italy ->0</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/8"  target="_blank" role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-9</h5>
-        <h6 class="card-subtitle mb-2 text-muted">26th August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/Norway.png" alt="">
-        <h4 style="display: inline;">Norway ->0</h4>
-        <br>
-        <img class="photo" src="../flag/Brazil.png" alt="">
-        <h4 style="display: inline;text-align: right;">Brazil ->1</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/9" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title">Match-10</h5>
-        <h6 class="card-subtitle mb-2 text-muted">27th August 2021 at 19:00 PM</h6>
-       <img class="photo" src="../flag/download.png" alt="">
-        <h4 style="display: inline;">England -> 2</h4>
-        <br>
-        <img class="photo" src="../flag/Argentina.jpg" alt="">
-        <h4 style="display: inline;text-align: right;">Argentina -> 0</h4>
-
-      </div>
-      <div class="btn center">
-        <a class="btn btn-primary" href="/result/10" target="_blank"  role="button">Know More</a>
-      </div>
-    </div>
-  </div>    
-
+    <div class="space"></div>
     <div class="space"></div>
 
 
