@@ -15,10 +15,11 @@ const router=express.Router()
 
 router.get('/',async (req,res)=>{
     const newsapi = new NewsAPI('a2f5c227edef4ba1867c63b12930dc08');
-    const news=await newsapi.v2.topHeadlines({
-        q: 'football'  
-      })
-     
+   
+        const news=await newsapi.v2.topHeadlines({
+            q: 'football'  
+        })
+    
     const token=ls.get('token')
    
     if(token===null){  
@@ -31,11 +32,16 @@ router.get('/',async (req,res)=>{
     res.render('index',{login:true,isAdmin:false,news:news.articles})
 
 })
-
+let matches=[]
+let userMatches=[]
+let result=[]
 router.get('/fixture',async (req,res)=>{
-    const matches=await MatchDetails.find({})
-    const result=await Result.find({})
-   
+    
+    matches=await MatchDetails.find({}).sort({'No':1})
+    
+    result=await Result.find({}).sort({'No':1})
+        
+    
     const token=ls.get('token')
     
     if(token===null){  
@@ -46,6 +52,7 @@ router.get('/fixture',async (req,res)=>{
     const user=await User.findOne({email})
     
     const userTeam=user.team
+   
     userMatches=await MatchDetails.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
     // const userResult=await Result.find({$or:[{'team1': { $in: userTeam }},{'team2': { $in: userTeam }}]})
 
@@ -64,7 +71,7 @@ router.get('/Contact',(req,res)=>{
 
     
     res.render('contact',{login:true,isAdmin:false})
-}),{login:false,isAdmin:false}
+})
 router.get('/Teams/:id',(req,res)=>{
     const id=req.params.id
     const token=ls.get('token')
@@ -97,18 +104,20 @@ router.get('/Teams/:id',(req,res)=>{
 router.get('/details/:id',async (req,res)=>{
    
     const id=req.params.id
-    const match=await MatchDetails.findOne({
-        No:id
-    })
-    const token=ls.get('token')
-    console.log('token ',token)
+    console.log(id)
+     const match=await MatchDetails.findOne({
+         'No':id
+     })
+     console.log(match)
+     const token=ls.get('token')
+    // / console.log('token ',token)
     if(token===null){  
-        console.log("you are not log in")
-       return res.render('match_details',{login:false,isAdmin:false,No:match.No,date:match.date,team1:match.team1,team2:match.team2,img1:match.img1,img2:match.img2,team1_prob:match.team1_prob,team2_prob:match.team2_prob,matches:match.matches,team1_win:match.team1_win,team2_win:match.team2_win,draw:match.draw,team1_top:match.team1_top,team2_top:match.team2_top,team1_history:match.team1_history,team2_history:match.team2_history,team1_recent:match.team1_recent,team2_recent:match.team2_recent,team1_player:match.team1_player,team2_player:match.team2_player})
+         console.log("you are not log in")
+        return res.render('match_details',{login:false,isAdmin:false,No:match.No,date:match.date,team1:match.team1,team2:match.team2,img1:match.img1,img2:match.img2,team1_prob:match.team1_prob,team2_prob:match.team2_prob,matches:match.matches,team1_win:match.team1_win,team2_win:match.team2_win,draw:match.draw,team1_top:match.team1_top,team2_top:match.team2_top,team1_history:match.team1_history,team2_history:match.team2_history,team1_recent:match.team1_recent,team2_recent:match.team2_recent,team1_player:match.team1_player,team2_player:match.team2_player})
 
-    }
-    const email=fetchUser(token)
-    res.render('match_details',{login:true,isAdmin:false,No:match.No,date:match.date,team1:match.team1,team2:match.team2,img1:match.img1,img2:match.img2,team1_prob:match.team1_prob,team2_prob:match.team2_prob,matches:match.matches,team1_win:match.team1_win,team2_win:match.team2_win,draw:match.draw,team1_top:match.team1_top,team2_top:match.team2_top,team1_history:match.team1_history,team2_history:match.team2_history,team1_recent:match.team1_recent,team2_recent:match.team2_recent,team1_player:match.team1_player,team2_player:match.team2_player})
+     }
+     const email=fetchUser(token)
+     res.render('match_details',{login:true,isAdmin:false,No:match.No,date:match.date,team1:match.team1,team2:match.team2,img1:match.img1,img2:match.img2,team1_prob:match.team1_prob,team2_prob:match.team2_prob,matches:match.matches,team1_win:match.team1_win,team2_win:match.team2_win,draw:match.draw,team1_top:match.team1_top,team2_top:match.team2_top,team1_history:match.team1_history,team2_history:match.team2_history,team1_recent:match.team1_recent,team2_recent:match.team2_recent,team1_player:match.team1_player,team2_player:match.team2_player})
 
 })
 router.get('/result/:id',async (req,res)=>{
@@ -151,7 +160,16 @@ router.get('/profile',async (req,res)=>{
       const team=user.team.toString()
       console.log(team)
       res.render('profile',{login:true,isAdmin:user.isAdmin,email:user.email,team:team})
-  })
+})
+router.get('/createMatch',async (req,res)=>{
+    const match=await MatchDetails.find().sort({No:'-1'}).limit(1)
+    // console.log(match)
 
+    console.log()
+    
+   
+
+    res.render('match',{login:false,No:parseInt(match[0].No)+1})
+})
 
 module.exports=router

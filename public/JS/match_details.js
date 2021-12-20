@@ -11,16 +11,31 @@ const winOrLoss=(n)=>{
 }
 
 
-   
+   console.log(item.img1.slice(0,6))
      
     document.getElementById('Number').innerText='Match No '+item.No;
     document.getElementById('dateTime').innerText=item.date
-    document.getElementById('team1_image').src='../'+item.img1
+    if(item.img1.slice(0,5)!=='https')
+        document.getElementById('team1_image').src='../'+item.img1
+    else
+        document.getElementById('team1_image').src=item.img1
+
+    if(item.img2.slice(0,5)!=='https')
+        document.getElementById('team2_image').src='../'+item.img2
+    else
+        document.getElementById('team2_image').src=item.img2
     document.getElementById('team1_name').innerText=item.team1
-    document.getElementById('team2_image').src='../'+item.img2
     document.getElementById('team2_name').innerText=item.team2
-    document.getElementById('team1_img').src='../'+item.img1
-    document.getElementById('team2_img').src='../'+item.img2
+    
+    if(item.img1.slice(0,5)!=='https')
+        document.getElementById('team1_img').src='../'+item.img1
+    else
+        document.getElementById('team1_img').src=item.img1
+
+    if(item.img2.slice(0,5)!=='https')
+        document.getElementById('team2_img').src='../'+item.img2
+    else
+        document.getElementById('team2_img').src=item.img2
     document.getElementById('team1_matches').innerText=item.matches
     document.getElementById('team2_matches').innerText=item.matches
     document.getElementById('team1_win').innerText=item.team1_win

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/profile.css">
+<link rel="stylesheet" href="/CSs/match.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -35,7 +35,6 @@
               <a href="/createMatch" class="nav-link">Create Match</a>
             </li>
             <li class="nav-item">
-
               <a href="/" class="nav-link">Home</a>
             </li>
     
@@ -157,69 +156,84 @@
           </div>
         </div>
       </div>
-      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form method="post" action="/changePassword">
-                  <input style="display: none;" type="text" value="<%-email -%>" name="email">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Old password</label>
-                  <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="old">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">New Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Confirm Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="confirm">
-                  </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              
-            </div>
-          </div>
-        </div>
-      </div>
+    
+    <h3 class="text-center" style="margin-top: 110px;">Upcoming Match details</h3>
+
     <div class="container">
-        <h2>Change your data</h2>
-        <img class="round" src="/other_images/profile.png" alt="">
-        <form method="post" action="/updateUser">
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-2 col-form-label">Team</label>
-              <div class="col-sm-10">
-                 <input style="display: none;" type="text" name="email" value="<%-email -%>">
-                <input type="text" class="form-control" id="inputEmail3" name="team" value="<%-team -%>">
-              </div>
-            </div>
-           
-            <div class="submit">
+        <form method="post" action="/uploadMatch">
+
+             <div class="row1 my-4">
                
-                <button type="submit" class=" btn  btn-primary my-2">Update</button>
+                <h6 class="inline">Match No-</h6>
+                <input type="text" class="inputTag" name="No" value="<%-No%>">
+            </div>
+            <div class="row1 my-4">
+               
+                <h6 class="inline">Date-</h6>
+                <input type="text" class="inputTag" name="date">
+            </div>
+            <div class="row1 my-4">
+               
+              <h6 class="inline">Matches-</h6>
+              <input type="text" class="inputTag" name="matches">
+          </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1">
+                <h6 class="inline">Teams</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2">
+            </div>
+          
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_win">
+                <h6 class="inline">Win</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_win">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_prob">
+                <h6 class="inline">Probability</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_prob">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="draw">
+                <h6 class="inline">Draw</h6>
+                <input type="text" class="right inputTag" placeholder="Team2">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_top">
+                <h6 class="inline">Top Scorer</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_top">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_history">
+                <h6 class="inline">Last 5 Encounter in 0/1 format</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_history">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_recent">
+                <h6 class="inline">Recent form in 0/1 format</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_recent">
+            </div>
+            <div class="row1 my-4">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_player">
+                <h6 class="inline">player to watch out</h6>
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_player">
+            </div> -->
+           -->
+            <div class="row1 my-4">
+                <input type="text" name="img1" >
+                <p class="text-center">Upload flags</p>
+                <input type="text" name="img2" >
 
             </div>
-            
-               
-                
-           
-          </form>
-          <button type="button" class="btn btn-success m-2" data-toggle="modal" data-target="#exampleModal2">
-            change password
-          </button>
+            <div class="row1 my-4"  >
+                <button type="submit" style="margin-top: 70px;">Submit</button>
+
+            </div>
+        </div>
+    
     </div>
-
-        <div class="space"></div>
-     <footer> 
+   
+    <footer>
         <div class="left_footer">
             <div class="location">
               <div class="location_icon">
@@ -267,11 +281,24 @@
             </div>
         </div>
         <div id="copy_right">
-            <p>Copy right reserve</p>
+            <p>Copy right reserve 2021</p>
         </div>
-    </footer> 
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script>
+      const submitForm=()=>{
+        const body={
+          img1:document.getElementById('flag1').files[0]
+        }
+        let options = {
+            method: 'POST',
+            
+            body: JSON.stringify(body)
+        }
+        fetch('http://localhost:3000/uploadMatch',options).then((res)=> console.log(res)).catch((err)=> console.log(err))
+      }
+    </script>
 </body>
 </html>
