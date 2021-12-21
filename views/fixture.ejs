@@ -204,6 +204,10 @@
                 </div>
                 <div class="btn center">
                   <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%if(isAdmin){%>
+                    <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
+                    
+                      <%}%>
                 </div>
                   
                 
@@ -231,6 +235,9 @@
                 </div>
                 <div class="btn center">
                   <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%if(isAdmin){%>
+                    <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
+                  <%}%>
                 </div>
                  </div>   
                 
@@ -280,8 +287,10 @@
         </div>
         <div class="btn center">
           <a class="btn btn-primary" href="/result/<%=match.No%>" target="_blank" role="button">Know More</a>
-        </div>
           
+        </div>
+       
+       
         
       </div>
    <% })%>

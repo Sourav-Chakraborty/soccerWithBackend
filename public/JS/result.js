@@ -1,9 +1,16 @@
- console.log(item)
-
+    if(item.team1_flag[0]==='f'){
+        item.team1_flag='../'+item.team1_flag
+        item.team2_flag='../'+item.team2_flag
+    
+    }
+    
         
         document.getElementById("number").innerText="Match NO "+item.no
         document.getElementById("dateTime").innerText=item.date
+       
         document.getElementById("team1_Img").src=item.team1_flag
+        
+
         document.getElementById("team2_Img").src=item.team2_flag
         document.getElementById("team1").innerText=item.team1
         document.getElementById("team2").innerText=item.team2

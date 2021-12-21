@@ -1,6 +1,6 @@
 const express=require('express')
 const MatchDetails=require('../model/match_details')
-const Pages = require('./pages')
+const Result=require('../model/result')
 const route=express.Router()
 
 
@@ -29,13 +29,17 @@ route.post('/uploadMatch',async (req,res)=>{
    
     res.json({msg:"done "})
    
-  
-
-    
-        
-
-
      
+})
+
+route.post('/uploadResult',async (req,res)=>{
+   let {No,date,team1,team2,team1_flag,team2_flag,team1_score,team2_score,team1_goal,team2_goal,team1_short,team2_short,team1_target,team2_target,team1_poss,team2_poss,team1_pass,team2_pass,team1_acc,team2_acc,team1_foul,team2_foul,team1_yellow,team2_yellow,team1_red,team2_red,team1_offside,team2_offside,team1_corner,team2_corner}=req.body
+    team1_goal=team1_goal.split(',')
+    team2_goal=team2_goal.split(',')
+    await Result.create({No,date,team1,team2,team1_flag,team2_flag,team1_score,team2_score,team1_goal,team2_goal,team1_short,team2_short,team1_target,team2_target,team1_poss,team2_poss,team1_pass,team2_pass,team1_acc,team2_acc,team1_foul,team2_foul,team1_yellow,team2_yellow,team1_red,team2_red,team1_offside,team2_offside,team1_corner,team2_corner})
+    await MatchDetails.findOneAndRemove({No:No.toString()})
+    console.log('removed')
+    res.redirect('/')
 })
 
 module.exports=route

@@ -173,13 +173,19 @@ router.get('/createMatch',async (req,res)=>{
     if(user.isAdmin===false)
         res.json({msg:"You need to be admin "})
     const match=await MatchDetails.find().sort({No:'-1'}).limit(1)
-    
-
-    
-    
-   
-
     res.render('match',{login:false,isAdmin:user.isAdmin,No:parseInt(match[0].No)+1})
+})
+
+
+router.get('/putResult/:id',async (req,res)=>{
+    const id=req.params.id
+    const match=await MatchDetails.find({No:id})
+   
+    
+    console.log(match)
+    
+    res.render('result',{isAdmin:true,team1:match[0].team1,team2:match[0].team2,No:id,date:match[0].date,img1:match[0].img1,img2:match[0].img2})
+
 })
 
 module.exports=router
