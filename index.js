@@ -6,11 +6,11 @@ const fileUpload=require('express-fileupload')
 const connectToMongo=require('./db.js')
 const cookieParser=require('cookie-parser')
 const app=express()
-app.use(cookieParser('CookingBlogSecure'));
+app.use(cookieParser('soccer'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(fileUpload());
+app.use(fileUpload({debug:true}));
 
 
 app.set("view engine",'ejs')

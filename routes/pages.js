@@ -1,6 +1,7 @@
 const express=require('express')
 const NewsAPI = require('newsapi');
 const MatchDetails=require('../model/match_details')
+const Game=require('../model/game')
 const Result=require('../model/result')
 const User=require('../model/user')
 const Player=require('../model/player')
@@ -186,6 +187,19 @@ router.get('/putResult/:id',async (req,res)=>{
     
     res.render('result',{isAdmin:true,team1:match[0].team1,team2:match[0].team2,No:id,date:match[0].date,img1:match[0].img1,img2:match[0].img2})
 
+})
+
+router.get('/predict/:id',async (req,res)=>{
+    const id=req.params.id
+    const token=ls.get('token')
+
+    if(token===null)
+        res.json({msg:"You need to be logged in"})
+    const email=fetchUser(token)
+    const user = await Game.findOne({$and:[{user:email},{match:id}]})
+    if(user!==null)
+        res.json({msg:'you have already participated in this match'})
+    res.json({msg:'welcome'})
 })
 
 module.exports=router

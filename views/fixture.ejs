@@ -207,7 +207,9 @@
                   <%if(isAdmin){%>
                     <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
                     
-                      <%}%>
+                  <%}else if(login){%>
+                    <a class="btn btn-primary" href="/predict/<%=match.No%>" target="_blank" role="button">Predict</a>
+                   <%}%>
                 </div>
                   
                 
@@ -237,7 +239,9 @@
                   <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
                   <%if(isAdmin){%>
                     <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
-                  <%}%>
+                    <%}else if(login){%>
+                      <a class="btn btn-primary" href="/predict/<%=match.No%>" target="_blank" role="button">Predict</a>
+                     <%}%>
                 </div>
                  </div>   
                 
