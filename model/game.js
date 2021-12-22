@@ -31,7 +31,7 @@ const game=new Schema({
     position:{
         type:String
     },
-    corner:{
+    shorts:{
         type:String
     },
     pass_accurecy:{

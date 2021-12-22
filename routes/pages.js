@@ -199,7 +199,8 @@ router.get('/predict/:id',async (req,res)=>{
     const user = await Game.findOne({$and:[{user:email},{match:id}]})
     if(user!==null)
         res.json({msg:'you have already participated in this match'})
-    res.json({msg:'welcome'})
+    const match=await MatchDetails.findOne({No:req.params.id})
+    res.render('predict',{email,id,isAdmin:false,login:true,team1:match.team1,team2:match.team2})
 })
 
 module.exports=router
