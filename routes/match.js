@@ -2,6 +2,7 @@ const express=require('express')
 const MatchDetails=require('../model/match_details')
 const Result=require('../model/result')
 const Game=require('../model/game')
+const ls=require('local-storage')
 const route=express.Router()
 
 
@@ -62,6 +63,9 @@ route.post('/uploadResult',async (req,res)=>{
         return res.redirect('/')
     let matchResult='',matchPoss='',matchShorts='',matchPassAcc=''
     
+
+
+
     if(team1_score===team2_score)
         matchResult='Draw'
     else if(team1_score>team2_score)
@@ -96,6 +100,15 @@ route.post('/uploadResult',async (req,res)=>{
 
     game.forEach((gam)=>{
         let sum=0
+        if(gam.team1_goal===parseInt(team1_score))
+            sum+=5
+        else
+            sum-=5
+        if(gam.team2_goal===parseInt(team2_score))
+            sum+=5
+        else
+            sum-=5
+
         if(matchResult===gam.win)
             sum+=5
         else
@@ -150,6 +163,11 @@ route.post('/game',async (req,res)=>{
     res.redirect('/')
 })
 
+route.get('/deleteMatch/:id',async (req,res)=>{
+    const id=req.params.id
+    await Result.findOneAndDelete({No:id.toString()})
+    res.redirect('/fixture')
+})
 
 
 module.exports=route

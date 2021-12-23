@@ -203,7 +203,9 @@
                   
                 </div>
                 <div class="btn center">
-                  <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%if(!isAdmin){%>
+                    <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%}%>
                   <%if(isAdmin){%>
                     <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
                     
@@ -236,7 +238,9 @@
                   
                 </div>
                 <div class="btn center">
-                  <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%if(!isAdmin){%>
+                    <a class="btn btn-primary" href="/details/<%=match.No%>" target="_blank" role="button">Know More</a>
+                  <%}%>
                   <%if(isAdmin){%>
                     <a class="btn btn-primary" href="/putResult/<%=match.No%>" target="_blank" role="button">Put Result</a>
                     <%}else if(login){%>
@@ -290,8 +294,16 @@
           
         </div>
         <div class="btn center">
+          <%if(!isAdmin){%>
           <a class="btn btn-primary" href="/result/<%=match.No%>" target="_blank" role="button">Know More</a>
-          
+          <%}%>
+          <%if(isAdmin){%>
+            <a class="btn btn-primary" href="/deleteMatch/<%=match.No%>" role="button">Delete</a>
+            <a class="btn btn-primary" href="/Editprevious/<%=match.No%>" role="button">Edit</a>
+            
+          <%}else if(login){%>
+            <a class="btn btn-primary" href="/userPredictionResult/<%=match.No%>" target="_blank" role="button">My Result</a>
+           <%}%>
         </div>
        
        

@@ -203,4 +203,56 @@ router.get('/predict/:id',async (req,res)=>{
     res.render('predict',{email,id,isAdmin:false,login:true,team1:match.team1,team2:match.team2})
 })
 
+router.get('/userPredictionResult/:id',async (req,res)=>{
+    const id=req.params.id
+    const token=ls.get('token')
+    if(token===null)
+        res.json({msg:"You need to be logged in"})
+    const email=fetchUser(token)
+    const game=await Game.findOne({$and:[{user:email},{match:id}]})
+    if(game===null)
+        res.json({msg:"You didn't participated in this game"})
+    const result=await Result.findOne({No:id})
+    let matchResult='',matchPoss='',matchShorts='',matchCard=0,matchPassAcc=''
+    
+    if(result.team1_acc<result.team2_acc)
+        matchPassAcc=result.team2
+    else if(result.team1_acc>result.team2_acc)
+        matchPassAcc=result.team1
+    else
+        matchPassAcc='Draw'
+
+    if(result.team1_score<result.team2_score)
+        matchResult=result.team2
+    else if(result.team1_score>result.team2_score)
+        matchResult=result.team1
+    else
+        matchResult='Draw'
+
+    if(result.team1_poss<result.team2_poss)
+        matchPoss=result.team2
+    else if(result.team1_poss>result.team2_poss)
+        matchPoss=result.team1
+    else
+        matchPoss='Draw'
+
+    if(result.team1_short<result.team2_short)
+        matchShorts=result.team2
+    else if(result.team1_short>result.team2_short)
+        matchShorts=result.team1
+    else
+        matchShorts='Draw'  
+
+    matchCard=parseInt(result.team1_yellow)+parseInt(result.team2_yellow)+parseInt(result.team1_red)+parseInt(result.team2_red)
+
+
+    res.render('predictionResult',{login:true,team1:result.team1,team2:res.team2,isAdmin:false,matchPassAcc,team1_goal:result.team1_score,team2_goal:result.team2_score,matchResult,matchPoss,matchShorts,matchCard:matchCard.toString(),
+    userResult:game.win,userTeam1Goal:game.team1_goal.toString(),userTeam2Goal:game.team2_goal.toString(),userPoss:game.position,userPass:game.pass_accurecy,
+    userShort:game.shorts,userCard:game.card,No:id,userScore:game.score,userRank:game.rank
+    })
+
+})  
+
+
+
 module.exports=router

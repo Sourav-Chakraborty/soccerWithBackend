@@ -27,10 +27,13 @@ const result=new Schema({
         type:String
     },
     team1_goal:{
-        type:Array
+        type:Array,
+        default:[]
     },
     team2_goal:{
-        type:Array
+        type:Array,
+        default:[]
+
     },
     team1_short:{
         type:String
