@@ -93,16 +93,16 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputEmail4">Email</label>
-                    <input  name="email" type="email" class="form-control" id="inputEmail4">
+                    <input  name="email" type="email" class="form-control" id="inputEmail4" required>
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Password</label>
-                    <input type="password" name="password" class="form-control" id="inputPassword4" >
+                    <input type="password" name="password" class="form-control" id="inputPassword4" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Favourite teams</label>
-                  <input type="text" name="team" class="form-control" id="inputAddress" placeholder="input by comma separed" >
+                  <input type="text" name="team" class="form-control" id="inputAddress" placeholder="input by comma separed" required>
                 </div>
                 
                
@@ -129,11 +129,11 @@
               <form method="post" action="/signin">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                  <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Sign in</button>
@@ -155,65 +155,65 @@
              <div class="row1 my-4">
                
                 <h6 class="inline">Match No-</h6>
-                <input type="text" class="inputTag" name="No" value="<%-No%>">
+                <input type="text" class="inputTag" name="No" value="<%-No%>" required>
             </div>
             <div class="row1 my-4">
                
                 <h6 class="inline">Date-</h6>
-                <input type="text" class="inputTag" name="date">
+                <input type="text" class="inputTag" name="date" required>
             </div>
             <div class="row1 my-4">
                
               <h6 class="inline">Matches-</h6>
-              <input type="text" class="inputTag" name="matches">
+              <input type="text" class="inputTag" name="matches" required>
           </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1" required>
                 <h6 class="inline">Teams</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2" required>
             </div>
           
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_win">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_win" required>
                 <h6 class="inline">Win</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_win">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_win" required>
             </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_prob">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_prob" required>
                 <h6 class="inline">Probability</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_prob">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_prob"required>
             </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="draw">
+                <input type="text" class="left inputTag" placeholder="Team1" name="draw" required>
                 <h6 class="inline">Draw</h6>
-                <input type="text" class="right inputTag" placeholder="Team2">
+                <input type="text" class="right inputTag" placeholder="Team2" required>
             </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_top">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_top" required>
                 <h6 class="inline">Top Scorer</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_top">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_top" required>
             </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_history">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_history" required>
                 <h6 class="inline">Last 5 Encounter in 0/1 format</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_history">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_history" required>
             </div>
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_recent">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_recent" required>
                 <h6 class="inline">Recent form in 0/1 format</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_recent">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_recent" required>
             </div>
           
             <div class="row1 my-4">
-                <input type="text" class="left inputTag" placeholder="Team1" name="team1_player">
+                <input type="text" class="left inputTag" placeholder="Team1" name="team1_player" required>
                 <h6 class="inline">player to watch out</h6>
-                <input type="text" class="right inputTag" placeholder="Team2" name="team2_player">
+                <input type="text" class="right inputTag" placeholder="Team2" name="team2_player" required>
             </div> 
             
             <div class="row1 my-4">
-                <input type="file" name="img1" >
+                <input type="file" name="img1" required>
                 <p class="text-center">Upload flags</p>
-                <input type="file" name="img2" >
+                <input type="file" name="img2" required>
 
             </div>
             <div class="row1 my-4"  >

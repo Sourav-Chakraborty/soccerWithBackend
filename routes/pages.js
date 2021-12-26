@@ -210,8 +210,9 @@ router.get('/userPredictionResult/:id',async (req,res)=>{
         res.json({msg:"You need to be logged in"})
     const email=fetchUser(token)
     const game=await Game.findOne({$and:[{user:email},{match:id}]})
+    console.log(game)
     if(game===null)
-        res.json({msg:"You didn't participated in this game"})
+       return res.json({msg:"You didn't participated in this game"})
     const result=await Result.findOne({No:id})
     let matchResult='',matchPoss='',matchShorts='',matchCard=0,matchPassAcc=''
     

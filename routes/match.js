@@ -83,7 +83,7 @@ route.post('/uploadResult',async (req,res)=>{
     
     if(team1_short===team2_short)
         matchShorts='Draw'
-    else if(team1_poss>team2_poss)
+    else if(team1_short>team2_short)
         matchShorts=team1
     else
         matchShorts=team2
@@ -99,42 +99,58 @@ route.post('/uploadResult',async (req,res)=>{
     console.log(game)
 
     game.forEach((gam)=>{
+        console.log("for user ",gam.user)
         let sum=0
         if(gam.team1_goal===parseInt(team1_score))
             sum+=5
         else
             sum-=5
+        console.log("For team1 goal user="+gam.team1_goal+" real result="+team1_score+" now sum="+sum)
+
         if(gam.team2_goal===parseInt(team2_score))
             sum+=5
         else
             sum-=5
-
+        console.log("For team2 goal user="+gam.team2_goal+" real result="+team2_score+" now sum="+sum)
+        
         if(matchResult===gam.win)
             sum+=5
         else
             sum-=5
+        console.log("the match win by user="+gam.win+" real result="+matchResult+" sum="+sum)
+        
 
         if(matchPoss===gam.position)
             sum+=5
         else
             sum-=5
 
+        console.log("the match position by user="+gam.position+" real result="+matchPoss+" sum="+sum)
+
+
         if(matchShorts===gam.shorts)
             sum+=5
         else
             sum-=5
+        console.log("the match shorts by user="+gam.shorts+" real result="+matchShorts+" sum="+sum)
+            
 
         if(matchPassAcc===gam.pass_accurecy)
             sum+=5
         else
             sum-=5
-            
-        if(matchCards===gam.card)
+        
+        console.log("the match pass accurecy by user="+gam.pass_accurecy+" real result="+matchPassAcc+" sum="+sum)
+        
+
+        if(parseInt(matchCards)===parseInt(gam.card))
             sum+=5
         else
             sum-=5
+        console.log("the match cards by user="+gam.card+" real result="+matchCards+" sum="+sum)
         
         gam.score=sum
+        sum=0
     })
 
     game.sort((a,b)=>{
