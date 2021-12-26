@@ -2,6 +2,7 @@ const express=require('express')
 const NewsAPI = require('newsapi');
 const MatchDetails=require('../model/match_details')
 const Game=require('../model/game')
+const Contact=require('../model/contact')
 const Result=require('../model/result')
 const User=require('../model/user')
 const Player=require('../model/player')
@@ -254,6 +255,19 @@ router.get('/userPredictionResult/:id',async (req,res)=>{
 
 })  
 
+router.post('/success',async (req,res)=>{
+   
+   
+    let {email,name,topic,details}=req.body
+    await Contact.create({email,name,topic,details})
+    const token=ls.get('token')
+
+    if(token===null)
+       return res.render('success',{isAdmin:false,login:false})
+    email=fetchUser(token)
+    const user = await Game.findOne({$and:[{user:email},{match:id}]})
+    res.render('success',{isAdmin:user.isAdmin,login:true})
+})
 
 
 module.exports=router
