@@ -1,5 +1,3 @@
-const handlesubmit=(e)=>{
-    e.preventDefault();
-
-    console.log("Hello world")
-}
+const handlesubmit = (e) => {
+	e.preventDefault();
+};
